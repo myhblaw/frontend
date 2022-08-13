@@ -44,9 +44,17 @@ export class QuestionRepository {
                         alert(`Error: ${error.message}`);
                     }
                 });
-        }
+        } else {
+            // If it has id, then update a existing item.
+            this.dataSource.updateQuestion(comment).subscribe(response => {
+                if (response.success) {
+                    this.question.splice(this.question.
+                        findIndex(i => i._id == comment._id), 1, comment);
+                }
+                else{
+                    alert(`Error: ${response.message}`);
+                }        
+            });
     }
-
-
-
+    }
 }

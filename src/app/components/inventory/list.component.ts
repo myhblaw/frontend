@@ -13,8 +13,9 @@ import { Question } from "../../models/question.model";
 
 export class ListComponent {
 
-    title = 'Inventory List';
+    title = 'Product List';
     myDate = Date.now();
+    
 
     constructor(private repository: InventoryRepository,
         private router: Router,

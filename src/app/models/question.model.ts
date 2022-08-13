@@ -6,6 +6,8 @@ export class Question {
         public itemid?: string, 
         public comment?: string,
         public created?: Date,
+        public answer?: string,
+        public ownername?: string,
     ){}
 
 }

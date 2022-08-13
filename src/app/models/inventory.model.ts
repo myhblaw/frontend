@@ -3,22 +3,13 @@ export class Inventory {
     constructor(
         public _id?: string,
         public item?: string,
-        public qty?: number,
-        public tags?: string[],
-        public status?: string,
-        public size?: Size,
+        public condition?: string,
+        public color?: string,
+        public information?: string,
         public date?: Date,
-        public enddate?: Date
+        public enddate?: Date,
+        public ownername?: string
     ){}
 
 }
 
-export class Size {
-
-    constructor(
-        public h?: number,
-        public w?: number,
-        public uom?: string
-    ){}
-
-}

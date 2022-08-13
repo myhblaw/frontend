@@ -64,6 +64,14 @@ export class RestDataSource {
             }));
     }
 
+    updateQuestion(comment: Question): Observable<ResponseModel> {
+        return this.http.put<ResponseModel>(`${this.baseUrl}question/edit/${comment._id}`,
+        comment, this.provideToken()).pipe(map(response => {
+                return response;
+            }),
+            catchError(error => {return of(error.error)}));
+    }
+
     updateInventory(item: Inventory): Observable<ResponseModel> {
         return this.http.put<ResponseModel>(`${this.baseUrl}inventory/edit/${item._id}`,
             item, this.provideToken()).pipe(map(response => {

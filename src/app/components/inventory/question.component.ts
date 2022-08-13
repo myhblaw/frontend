@@ -5,6 +5,7 @@ import { Inventory } from "../../models/inventory.model";
 import { InventoryRepository } from "../../models/inventory.repository";
 import { QuestionRepository } from "../../models/question.repository";
 import { Question } from "../../models/question.model";
+import { AuthService } from 'src/app/models/auth.service';
 
 
 @Component({
@@ -19,20 +20,34 @@ export class QuestionComponent {
     comment: Question = new Question();
     item: Inventory = new Inventory();
     activeRoute: ActivatedRoute;
+    isowner: boolean = false;
 
     constructor(private repository: QuestionRepository,
                 private repository2: InventoryRepository,
                 private router: Router,
-                activeRoute: ActivatedRoute) 
+                activeRoute: ActivatedRoute,
+                public auth: AuthService,) 
     { 
         // Edit
 
             this.item = this.repository2.getItem(activeRoute.snapshot.params["id"]);
+           
+            this.editing = activeRoute.snapshot.params["mode"] == "edit";
+
+
+
         
+            // Edit
+            if (this.editing) {
+                this.comment = this.repository.getComment(activeRoute.snapshot.params["id"]);
+
+                this.isowner = auth.username == this.comment.ownername;
+            } else {
 
         // Question
 
             this.comment = new Question();
+            }
               
     }
     

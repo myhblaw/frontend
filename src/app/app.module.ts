@@ -39,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: "inventory/:mode", component: AddEditComponent, canActivate: [AuthGuard]},
       { path: "inventory/:mode/:id", component: AddEditComponent, canActivate: [AuthGuard] },
       { path: "question/add/:id", component: QuestionComponent },
+      { path: "question/:mode/:id", component: QuestionComponent, canActivate: [AuthGuard]  },
       { path: "users/signin", component: SignInComponent },
       { path: "users/signup", component: SignUpComponent },
       { path: "**", redirectTo: "" }

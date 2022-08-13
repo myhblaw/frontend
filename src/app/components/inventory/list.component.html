@@ -14,7 +14,7 @@
             </a>                 -->
             <a routerLink="/inventory/add" class="btn btn-primary align-self-end" role="button">
                 <i class="fas fa-plus-circle"></i> 
-                Add a new Item
+                Add a new Product to sell
             </a> 
         </div>
 
@@ -22,15 +22,16 @@
             <table class="table table-bordered table-striped table-hover">
                 <!-- Header Row-->
                 <tr>
-                    <th class="text-center">Item</th>
-                    <th class="text-center">Qty</th>
-                    <th class="text-center">Status</th>
-                    <th>Size</th>
-                    <th class="text-center">Tags</th>
+                    <th class="text-center">Product Name</th>
+                    <th class="text-center">Product Condition</th>
+                    <th class="text-center">Color</th>
+                    <th class="text-center">Product Information</th>
                     <th class="text-center">Start Date</th>
                     <th class="text-center">End Date</th>
-                    <th class="text-center">Expired?</th>
-                    <th class="text-center" colspan="3">Actions</th>
+                    <th class="text-center">Owner</th>
+                    <th class="text-center">Expiry Status</th>
+                    <th class="text-center" colspan="1">Edit</th>
+                    <th class="text-center" colspan="1">Ask a question</th>
                 </tr>
 
                 <!-- Repeatable Template Row -->
@@ -39,17 +40,12 @@
                     <!-- <tr> -->
                     <tr *ngFor="let item of inventoryList">
                         <td class="text-center"> {{ item.item }} </td>
-                        <td class="text-center"> {{ item.qty }} </td>
-                        <td class="text-center"> {{ item.status }} </td>
-                        <td>
-                            Hight: {{ item.size.h }}<br />
-                            Width: {{ item.size.w }}<br />
-                            UOM: {{ item.size.uom }}<br />
-                        </td>
-                        <td class="text-center">{{ item.tags }}</td>
+                        <td class="text-center"> {{ item.condition }} </td>
+                        <td class="text-center"> {{ item.color }} </td>
+                        <td class="text-center"> {{ item.information }} </td>
                         <td class="text-center">{{ item.date }}</td>
                         <td class="text-center">{{ item.enddate }}</td>
-
+                        <td class="text-center">{{ item.ownername }}</td>
                         <td>
                         <p *ngif="'123' =='123' ">Expired</p>
                         <p *ngif="item.date > myDate">Active</p>
@@ -81,7 +77,10 @@
                 <tr>
                     <th class="text-center">Item</th>
                     <th class="text-center">Questions</th>
-                    <th class="text-center">Date</th>
+                    <th class="text-center">Question Date</th>
+                    <th class="text-center">Owner Name</th>
+                    <th class="text-center">Answers</th>
+                    <th class="text-center" colspan="1">Answer a question</th>
                 </tr>
 
                 <!-- Repeatable Template Row -->
@@ -92,6 +91,8 @@
                         <td class="text-center"> {{ comment.item }} </td>
                         <td class="text-center"> {{ comment.comment }} </td>
                         <td class="text-center"> {{ comment.created }} </td>
+                        <td class="text-center"> {{ comment.ownername }} </td>
+                        <td class="text-center"> {{ comment.answer }} </td>
                         <!-- <td class="text-center">
                             <button class="btn bg-primary btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt" ></i></button>
@@ -100,7 +101,10 @@
                             <a class="btn bg-danger btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i></a>
                         </td> -->
-
+                        <td class="text-center">
+                            <button [routerLink]="['/question/edit/', comment._id]" class="btn bg-primary btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt" ></i></button>
+                        </td>
                     </tr> 
                 <!-- <% } %> -->
             </table>
