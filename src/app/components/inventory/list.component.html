@@ -27,7 +27,8 @@
                     <th class="text-center">Status</th>
                     <th>Size</th>
                     <th class="text-center">Tags</th>
-                    <th class="text-center">Expiry Date</th>
+                    <th class="text-center">Start Date</th>
+                    <th class="text-center">End Date</th>
                     <th class="text-center">Expired?</th>
                     <th class="text-center" colspan="3">Actions</th>
                 </tr>
@@ -47,6 +48,7 @@
                         </td>
                         <td class="text-center">{{ item.tags }}</td>
                         <td class="text-center">{{ item.date }}</td>
+                        <td class="text-center">{{ item.enddate }}</td>
 
                         <td>
                         <p *ngif="'123' =='123' ">Expired</p>
@@ -68,10 +70,6 @@
                         <td class="text-center">
                             <button [routerLink]="['/question/add/', item._id]" class="btn bg-primary btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt" ></i></button>
-                        <td class="text-center">
-                            <a (click)="deleteMethod(item._id)" class="btn bg-danger btn-danger btn-sm">
-                                <i class="fas fa-trash-alt"></i></a>
-                        </td>
                     </tr> 
                 <!-- <% } %> -->
             </table>

@@ -89,8 +89,13 @@
                     </textarea>
                 </div>
                 <br/>
+                <label for="startDate">Start Time</label>
                 <input [ngModel]="item.date | date:'yyyy-MM-dd'" 
                 (ngModelChange)="item.date = $event" type="datetime-local" name="startDate"/>
+
+                <label for="startDate">End Time</label>
+                <input [ngModel]="item.date | date:'yyyy-MM-dd'" 
+                (ngModelChange)="item.enddate = $event" type="datetime-local" name="endDate"/>
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> 
