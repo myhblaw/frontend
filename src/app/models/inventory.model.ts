@@ -6,7 +6,8 @@ export class Inventory {
         public qty?: number,
         public tags?: string[],
         public status?: string,
-        public size?: Size
+        public size?: Size,
+        public date?: Date
     ){}
 
 }

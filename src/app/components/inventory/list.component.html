@@ -27,7 +27,8 @@
                     <th class="text-center">Status</th>
                     <th>Size</th>
                     <th class="text-center">Tags</th>
-                    <th class="text-center">Questions</th>
+                    <th class="text-center">Expiry Date</th>
+                    <th class="text-center">Expired?</th>
                     <th class="text-center" colspan="3">Actions</th>
                 </tr>
 
@@ -45,7 +46,13 @@
                             UOM: {{ item.size.uom }}<br />
                         </td>
                         <td class="text-center">{{ item.tags }}</td>
-                        <td class="text-center">{{ item.tags }}</td>
+                        <td class="text-center">{{ item.date }}</td>
+
+                        <td>
+                        <p *ngif="'123' =='123' ">Expired</p>
+                        <p *ngif="item.date > myDate">Active</p>
+                        </td>
+
                         <!-- <td class="text-center">
                             <button class="btn bg-primary btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt" ></i></button>

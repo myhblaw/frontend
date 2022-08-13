@@ -17,11 +17,18 @@ import { InventoryModule } from "./components/inventory/inventory.module";
 import { AuthModule } from './components/auth/auth.module';
 import { AuthGuard } from "./components/auth/auth.guard";
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     IndexModule,
     InventoryModule,
@@ -35,7 +42,8 @@ import { AuthGuard } from "./components/auth/auth.guard";
       { path: "users/signin", component: SignInComponent },
       { path: "users/signup", component: SignUpComponent },
       { path: "**", redirectTo: "" }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard
