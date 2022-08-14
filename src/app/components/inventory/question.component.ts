@@ -21,6 +21,7 @@ export class QuestionComponent {
     item: Inventory = new Inventory();
     activeRoute: ActivatedRoute;
     isowner: boolean = false;
+    isexpired: boolean = false;
 
     constructor(private repository: QuestionRepository,
                 private repository2: InventoryRepository,
@@ -34,7 +35,7 @@ export class QuestionComponent {
            
             this.editing = activeRoute.snapshot.params["mode"] == "edit";
 
-
+            this.isexpired = this.item.enddate <= new Date();
 
         
             // Edit

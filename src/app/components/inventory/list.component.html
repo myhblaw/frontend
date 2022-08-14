@@ -27,9 +27,8 @@
                     <th class="text-center">Color</th>
                     <th class="text-center">Product Information</th>
                     <th class="text-center">Start Date</th>
-                    <th class="text-center">End Date</th>
+                    <th class="text-center">Expiry Date</th>
                     <th class="text-center">Owner</th>
-                    <th class="text-center">Expiry Status</th>
                     <th class="text-center" colspan="1">Edit</th>
                     <th class="text-center" colspan="1">Ask a question</th>
                 </tr>
@@ -43,13 +42,9 @@
                         <td class="text-center"> {{ item.condition }} </td>
                         <td class="text-center"> {{ item.color }} </td>
                         <td class="text-center"> {{ item.information }} </td>
-                        <td class="text-center">{{ item.date }}</td>
-                        <td class="text-center">{{ item.enddate }}</td>
+                        <td class="text-center">{{ item.date | date }}</td>
+                        <td class="text-center">{{ item.enddate | date }}</td>
                         <td class="text-center">{{ item.ownername }}</td>
-                        <td>
-                        <p *ngif="'123' =='123' ">Expired</p>
-                        <p *ngif="item.date > myDate">Active</p>
-                        </td>
 
                         <!-- <td class="text-center">
                             <button class="btn bg-primary btn-primary btn-sm">
@@ -90,7 +85,7 @@
                     <tr *ngFor="let comment of questionList">
                         <td class="text-center"> {{ comment.item }} </td>
                         <td class="text-center"> {{ comment.comment }} </td>
-                        <td class="text-center"> {{ comment.created }} </td>
+                        <td class="text-center"> {{ comment.created | date:'medium' }} </td>
                         <td class="text-center"> {{ comment.ownername }} </td>
                         <td class="text-center"> {{ comment.answer }} </td>
                         <!-- <td class="text-center">

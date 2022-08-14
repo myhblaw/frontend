@@ -14,7 +14,8 @@ import { Question } from "../../models/question.model";
 export class ListComponent {
 
     title = 'Product List';
-    myDate = Date.now();
+    myDate = new Date().getTime();
+    isexpired: boolean = true;
     
 
     constructor(private repository: InventoryRepository,
@@ -35,5 +36,17 @@ export class ListComponent {
             this.router.navigateByUrl("inventory/delete/"+id);
         }
     }
+
+    isActive(enddate: Date): boolean {
+        const expireDate = enddate.getTime();
+        if (
+
+          new Date().getTime() <= expireDate
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     
 }

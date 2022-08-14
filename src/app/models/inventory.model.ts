@@ -8,6 +8,7 @@ export class Inventory {
         public information?: string,
         public date?: Date,
         public enddate?: Date,
+        public status?: string,
         public ownername?: string
     ){}
 

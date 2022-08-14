@@ -55,11 +55,20 @@
                         [(ngModel)]="comment.answer"
                         required>
                     </div>
-                </div>
+                
                 <br/>
-                <div *ngIf="!isowner" class="ask-question">
-<p>Sorry you are not the owner of the item. You cannot answer this question!</p>
-</div>
+
+                <div *ngIf="isexpired" class="expired-or-not">
+                    <p>This is expired</p>
+                </div>
+            </div>
+            <br/>
+
+<button *ngIf="!editing" class="btn btn-primary" type="submit">
+    <i class="fas fa-edit"></i> 
+    Submit
+</button>
+
                 <button *ngIf="isowner" class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> 
                     Submit

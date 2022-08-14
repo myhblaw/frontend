@@ -59,11 +59,16 @@
                 <input [ngModel]="item.date | date:'yyyy-MM-dd'" 
                 (ngModelChange)="item.date = $event" type="date" name="startDate"/>
 
-                <label for="startDate">End Time</label>
+                <label for="endDate">End Time</label>
                 <input [ngModel]="item.date | date:'yyyy-MM-dd'" 
                 (ngModelChange)="item.enddate = $event" type="date" name="endDate"/>
 
-                <button class="btn btn-primary" type="submit">
+                <button *ngIf="isowner" class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> 
+                    Submit
+                </button>
+
+                <button *ngIf="!editing" class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> 
                     Submit
                 </button>

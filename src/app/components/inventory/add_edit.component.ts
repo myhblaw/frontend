@@ -3,7 +3,7 @@ import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Inventory } from "../../models/inventory.model";
 import { InventoryRepository } from "../../models/inventory.repository";
-
+import { AuthService } from 'src/app/models/auth.service';
 
 
 @Component({
@@ -16,10 +16,12 @@ export class AddEditComponent {
     title:string = 'Add a new Item';
     editing: boolean = false;
     item: Inventory = new Inventory();
+    isowner: boolean = false;
 
     constructor(private repository: InventoryRepository,
                 private router: Router,
-                activeRoute: ActivatedRoute) 
+                activeRoute: ActivatedRoute,
+                public auth: AuthService,) 
     { 
         // Delete
         if (activeRoute.snapshot.params["mode"] == "delete") {
@@ -31,6 +33,7 @@ export class AddEditComponent {
         // Edit
         if (this.editing) {
             this.item = this.repository.getItem(activeRoute.snapshot.params["id"]);
+            this.isowner = auth.username == this.item.ownername;
         } 
 
         // Add
